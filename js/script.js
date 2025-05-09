@@ -9,17 +9,21 @@ function gerarCodigoQr() {
   if (campoQr !== "") {
     new QRCode(box, {
       text: campoQr,
-      width: 350,
-      height: 350,
+      width: 300,
+      height: 300,
     })
 
     divQrCode.classList.remove("display-hidden")
 
     setTimeout(() => {
       const img = box.querySelector("img")
+      const canvas = box.querySelector("canvas") // Verificando canvas também
       const download = document.querySelector("#download")
+
       if (img) {
-        download.href = img.src
+        download.href = img.src // Caso seja uma imagem
+      } else if (canvas) {
+        download.href = canvas.toDataURL("image/png") // Caso seja um canvas
       }
     }, 300)
   } else {
