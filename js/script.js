@@ -11,19 +11,18 @@ function gerarCodigoQr() {
       text: campoQr,
       width: 300,
       height: 300,
+      render: "canvas",
     })
 
     divQrCode.classList.remove("display-hidden")
 
     setTimeout(() => {
-      const img = box.querySelector("img")
-      const canvas = box.querySelector("canvas") // Verificando canvas também
+      const canvas = box.querySelector("canvas")
       const download = document.querySelector("#download")
 
-      if (img) {
-        download.href = img.src // Caso seja uma imagem
-      } else if (canvas) {
-        download.href = canvas.toDataURL("image/png") // Caso seja um canvas
+      if (canvas) {
+        download.href = canvas.toDataURL("image/png")
+        download.download = "qrcode.png"
       }
     }, 300)
   } else {
