@@ -1,31 +1,31 @@
-let btnGerar = document.querySelector("#gerar-qr")
-let box = document.querySelector(".box")
-let divQrCode = document.querySelector(".qr-code")
+const btnGerar = document.querySelector("#gerar-qr")
+const box = document.querySelector(".box")
+const divQrCode = document.querySelector(".qr-code")
 
 function gerarCodigoQr() {
-	let campoQr = document.querySelector("#campo-qr").value
+  const campoQr = document.querySelector("#campo-qr").value.trim()
+  box.innerHTML = ""
 
-	box.innerHTML = ""
+  if (campoQr !== "") {
+    new QRCode(box, {
+      text: campoQr,
+      width: 350,
+      height: 350,
+    })
 
-	if(campoQr.trim() != "") {
-		var qrcode = new QRCode(box, {
-		text: campoQr,
-		width: 350,
-		height: 350,
-	});
-		divQrCode.classList.add("display-hidden");
+    divQrCode.classList.remove("display-hidden")
 
-		setTimeout(() => {
-		const img = box.querySelector("img")
-		const download = document.querySelector("#download")
-
-		download.href = img.src
-		}, 300);
-
-	}else {
-		divQrCode.classList.remove("display-hidden");
-		alert("Campo Vazio!")
-	}
+    setTimeout(() => {
+      const img = box.querySelector("img")
+      const download = document.querySelector("#download")
+      if (img) {
+        download.href = img.src
+      }
+    }, 300)
+  } else {
+    divQrCode.classList.add("display-hidden")
+    alert("Campo vazio!")
+  }
 }
 
 btnGerar.addEventListener("click", gerarCodigoQr)
