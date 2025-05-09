@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "poppins", sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	display: flex;
+	width: 1010px;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	width: 456px;
+
+	border: 1px solid #000;
+	border-radius: 20px;
+	padding: 40px;
+}
+
+/* title */
+.title {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.title h1 {
+	font-weight: 700;
+}
+
+/* input */
+input {
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: 1px solid #0000008b;
+	outline: none;
+
+	font-size: 24px;
+	font-weight: 500;
+}
+
+/* button */
+button {
+	width: 185px;
+	padding: 10px 20px;
+	background-color: #000;
+	color: #fff;
+	border-radius: 100px;
+	border: none;
+	cursor: pointer;
+}
+
+/* qr code*/
+.qr-code {
+	display: none;
+}
+
+
+.box {
+	padding: 60px;
+	margin-bottom: 30px;
+
+	border: 1px solid #000;
+	border-radius: 20px;
+}
+
+.qr-code a {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 10px 20px;
+	background-color: #000;
+	color: #fff;
+	border-radius: 100px;
+	border: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.display-hidden {
+	display: flex;
+	flex-direction: column;
+	margin-left: 80px;
+}
